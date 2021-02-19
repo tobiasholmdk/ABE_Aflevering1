@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
-const Student = require('./models/studentmodel');
-const students = require('./students');
+const Hotel = require('./models/hotelmodel');
+const hotels = require('./students');
+
+// var hotelsRouter = require('./routes/hotel');
+// app.use('/hotels', hotelsRouter);
 
 mongoose.connection.on('connected', () => {
     console.log(`Mongoose connected to ${url}`);
@@ -28,8 +31,8 @@ async function main() {
     const db = mongoose.connection;
 
     try {
-        let savedDocument = await Student.create(students);
-        console.log(savedDocument);
+        //let savedDocument = await Hotel.create(hotels);
+        //console.log(savedDocument);
     } catch (error) {
         console.log(error);
     } finally {
