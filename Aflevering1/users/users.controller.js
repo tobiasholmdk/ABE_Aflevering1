@@ -6,7 +6,7 @@ const Role = require('../_helpers/role');
 
 //Routes set up
 router.post('/authenticate', authenticate); //public router
-router.get('/', authorize(Role.Admin), getAll); //Admin only
+router.get('/', authorize(Role.Admin), getAll); //Admin only 
 router.get('/:id', authorize(), getById); //all authenticated users
 module.exports = router;
 
@@ -48,4 +48,5 @@ async function getById(req, res, next) {
         next(err);
     }
 }
+
 

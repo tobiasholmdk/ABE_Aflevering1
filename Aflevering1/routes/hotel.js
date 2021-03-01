@@ -2,12 +2,8 @@ var express = require('express');
 var router = express.Router();
 var hotelcontroller = require('../controllers/hotelcontroller')
 
-//const userService = require('./user.service');
 const authorize = require('../_helpers/authorize')
 const Role = require('../_helpers/role');
-
-
-
 
 router.post('/addhotel', authorize(Role.Manager), hotelcontroller.addHotel);
 

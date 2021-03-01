@@ -27,6 +27,7 @@ apis: ['./routes/*.js'],
 require('./models/db');
 var studentRouter = require('./routes/student');
 var hotelRouter = require('./routes/hotel');
+var userRouter = require('./routes/user')
 
 var app = express();
 const swaggerSpec = swaggerJSDoc(options);
@@ -43,6 +44,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use('/student', studentRouter);
 app.use('/hotel', hotelRouter);
+app.use('/user', userRouter);
 
 app.use('/users', require('./users/users.controller'));
 
