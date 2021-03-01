@@ -1,23 +1,23 @@
 var user = require ('../models/user');
-const userService = require('../users/user.service');
+const jwt = require('jsonwebtoken');
 
 exports.login =  async function (req, res) {
-    try {
-      const user = await userService.authenticate(req.body);
-      if(user) {
-        res.status(200);
-        res.json(user)
+  const result = await user.findOne({username: req.body.username, password: req.body.password});
 
-      } else {
-        res.status(400).json({
-          message: 'Username or password is incorrect'})
-      }
-  } catch (err) {
-      next(err)
-  };   
+  if(result) 
+  { 
+    const token = jwt.sign({sub: result.id, role: result.role}, process.env.ACCESS_TOKEN_SECRET);
+    //const {password, ...userWithoutPassword} = result;
+    
+    res.status(200);
+    res.json({token});
+  }
+  else 
+  {
+    res.status(400).json({ message: 'Username or password is incorrect'})
+  }    
 };
 
-/*
 exports.adduser =  async function (req, res) {
   const newUser = {
     username: req.body.username,
@@ -37,7 +37,7 @@ exports.adduser =  async function (req, res) {
     message: 'Both username and password is required. Username must be unique'})
   }
 };
-*/
+
 
 
 
