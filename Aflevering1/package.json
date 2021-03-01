@@ -16,6 +16,8 @@
     "http-errors": "~1.6.3",
     "mongoose": "^5.11.15",
     "morgan": "~1.9.1",
+    "openapi-types": "^7.2.3",
+    "swagger-jsdoc": "5.0.1",
     "swagger-ui-express": "^4.1.6"
   }
 }
