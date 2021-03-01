@@ -8,7 +8,7 @@ router.post('/addhotel', hotelcontroller.addHotel);
 
 
 router.post('/addroom', hotelcontroller.addRoom);
-
+router.post('/freerooms',hotelcontroller.getFreeRooms);
 
 /* GET add student form */
 

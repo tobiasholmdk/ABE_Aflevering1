@@ -3,7 +3,8 @@ const mongoose = require('mongoose'); const Schema = mongoose.Schema;
 
 const roomSchema = new Schema({ 
     RoomNumber: String,
-    Beds: String
+    Beds: String,
+    Reserved: Boolean
 });
 
 const room = mongoose.model( 'Room', roomSchema, 'roomscollection');
