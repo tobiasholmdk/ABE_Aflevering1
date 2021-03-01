@@ -1,0 +1,56 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Hotels API",
+        "description": "Swagger UI for testing functionality of Hotels API"
+    },
+    "schemes": [
+        "http"
+    ],
+    "host": "localhost:3000",
+    "basePath": "/hotel",
+    "paths": {
+        "/gethotels": {
+            "get": {
+                "summary": "Gets hotels",
+                "description": "Returns a list containing all hotels.",
+                "responses": {
+                    "200": {
+                        "description": "List of hotels",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "Id": {
+                                        "type": "string"
+                                    },
+                                    "__v": {
+                                        "type": "integer" 
+                                    },
+                                    "Rooms": {
+                                        "type": "array",
+                                            "items": {
+                                            "properties": {
+                                                "Id": {
+                                                    "type": "string"
+                                                    
+                                                },
+                                                "__v": {
+                                                    "type": "integer" 
+                                                },
+                                                "Room number": {
+                                                    "type": "integer" 
+                                                }                                            
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
