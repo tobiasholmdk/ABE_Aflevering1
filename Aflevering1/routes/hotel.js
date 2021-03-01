@@ -28,6 +28,6 @@ router.post('/freerooms',hotelcontroller.getFreeRooms);
 *                properties:
 *                  id:string
 */
-router.get('/gethotels', hotelcontroller.getHotels);
+router.get('/gethotels', authorize(Role.Admin), hotelcontroller.getHotels);
 
 module.exports = router;

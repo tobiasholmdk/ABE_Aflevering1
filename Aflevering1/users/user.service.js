@@ -5,12 +5,14 @@ const User = require('../models/user');
 
 
 //simple users - are to be stored in DB
+
 const users = [
         { username: 'admin', password: 'admin', firstname: 'Admin', lastname: 'User', role: Role.Admin },
         { username: 'manager', password: 'manager', firstname: 'Manager', lastname: 'User', role: Role.Manager },
         { username: 'guest', password: 'guest', firstname: 'Guest', lastname: 'User', role: Role.Guest },
         { username: 'user', password: 'user', firstname: 'User', lastname: 'User', role: Role.User }
 ];
+
 
 //User.create(users);
 

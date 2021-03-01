@@ -3,8 +3,15 @@ const Schema = mongoose.Schema;
 
 //Obs: role could change to roles array.
 const userSchema = new Schema({
-    username: String,
-    password: String,
+    username: {
+        type: String,
+        unique: true,
+        required: true
+    },    
+    password: {
+        type: String,        
+        required: true
+    },
     firstname: String,
     lastname: String,
     role: String
