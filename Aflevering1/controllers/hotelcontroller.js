@@ -9,11 +9,7 @@ exports.addHotel =  async function (req, res) {
         
         const hoteltest = {
                 Name: req.body.Name,
-                Address: req.body.Address,
-                Rooms: {
-                  RoomNumber: req.body.RoomsNumber,
-                  Beds: req.body.Beds
-                }
+                Address: req.body.Address
               };
         
         var result = await hotel.create(hoteltest);
