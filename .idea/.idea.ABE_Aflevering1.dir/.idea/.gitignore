@@ -1,0 +1,13 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/projectSettingsUpdater.xml
+/.idea.ABE_Aflevering1.iml
+/modules.xml
+/contentModel.xml
+# Datasource local storage ignored files
+/../../../../../../../../../:\Users\user\source\repos\ABE_Aflevering1\.idea\.idea.ABE_Aflevering1.dir\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
