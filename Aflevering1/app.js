@@ -6,6 +6,10 @@ var logger = require('morgan');
 const cors = require('cors')
 const swaggerJSDoc = require('swagger-jsdoc'); // import swaggerJSDoc from 'swagger-jsdoc';
 const swaggerUi = require('swagger-ui-express');
+const bodyParser = require('body-parser');
+require('dotenv').config();
+
+
 
 const swaggerDefinition = {
   openapi: '3.0.0',
@@ -33,11 +37,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.json());
 //app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors());
 app.use('/student', studentRouter);
 app.use('/hotel', hotelRouter);
+
+app.use('/users', require('./users/users.controller'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
