@@ -26,7 +26,15 @@ exports.login = async function (req, res) {
   const result = await user.findOne({
     username: req.body.username,
   });
-  var correctLogin = await bcrypt.compare(req.body.password, result.password);
+
+  if(req.body.password == result.password)
+  {
+    //Some users where seeded before we hashed passwords
+    var correctLogin = result.password;
+  }
+  else {
+    var correctLogin = await bcrypt.compare(req.body.password, result.password);
+  }  
 
   if (correctLogin) {
     const token = jwt.sign(
@@ -70,4 +78,13 @@ exports.adduser = async function (req, res) {
         "Both username and password is required. Username must be unique",
     });
   }
+};
+
+exports.changePassWords = async function (req, res) {
+  var doc = await user.findOne({password: "pass"});
+  
+  doc.password = "testPass";
+  var result = await doc.save();
+  res.status(200);
+  res.json(result);
 };
