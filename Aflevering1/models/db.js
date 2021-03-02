@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 let dbUrl = 'mongodb+srv://dbuser:Holmdk009@cluster0.qegoz.mongodb.net/Mongotest?retryWrites=true&w=majority';
-if (process.env.NODE_ENV === 'production') {
-    dbUrl = process.env.MONGODB_URI;
-}
+// if (process.env.NODE_ENV === 'production') {
+//     dbUrl = process.env.MONGODB_URI;
+// }
 
 mongoose.connection.on('connected', () => {
     console.log(`Mongoose connected to ${dbUrl}`);
