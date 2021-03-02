@@ -1,0 +1,17 @@
+POST http://localhost:3000/hotel/addHotel
+Content-Type: application/json
+
+{
+    "Name" : "Test",
+    "Address" : "TestAddress",
+    "RoomsNumber" : "2",
+    "Beds" : "al"
+}
+###
+
+GET http://localhost:3000/hotel/gethotels
+###
+
+GET http://localhost:3000/
+###
+
