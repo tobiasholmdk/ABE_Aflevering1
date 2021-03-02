@@ -79,12 +79,3 @@ exports.adduser = async function (req, res) {
     });
   }
 };
-
-exports.changePassWords = async function (req, res) {
-  var doc = await user.findOne({password: "pass"});
-  
-  doc.password = "testPass";
-  var result = await doc.save();
-  res.status(200);
-  res.json(result);
-};
