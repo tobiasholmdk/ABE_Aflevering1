@@ -17,7 +17,21 @@ const swaggerDefinition = {
   info: {
     title: "Express API to manage students",
     version: "1.0.0",
+  },   
+  servers: [{url: 'http://localhost:3000/'}],
+  components: {
+    securitySchemes: {
+      bearerAuth: {
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+      }
+    }
   },
+  security: [{
+    bearerAuth: []
+  }]
+    
 };
 const options = {
   swaggerDefinition,
