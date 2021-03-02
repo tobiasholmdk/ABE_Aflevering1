@@ -1,9 +1,9 @@
 {
-  "name": "lab2c-webserver-mongoose",
+  "name": "aflevering01_abe",
   "version": "1.0.0",
-  "description": "Løsningsforslag",
+  "description": "Aflevering 1 i Avanceret Backend Udvikling",
   "private": true,
-  "author": "Poul Ejnar Rovsing",
+  "author": "Gruppe 14",
   "scripts": {
     "start": "node ./bin/www"
   },

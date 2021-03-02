@@ -8,7 +8,6 @@ const swaggerUi = require("swagger-ui-express");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 require("./models/db");
-var studentRouter = require("./routes/student");
 var hotelRouter = require("./routes/hotel");
 var userRouter = require("./routes/user");
 
@@ -17,21 +16,22 @@ const swaggerDefinition = {
   info: {
     title: "Express API for Assignment 1 - Hotel Management",
     version: "1.0.0",
-  },   
-  servers: [{url: 'http://localhost:3000/'}],
+  },
+  servers: [{ url: "http://localhost:3000/" }],
   components: {
     securitySchemes: {
       bearerAuth: {
-        type: 'http',
-        scheme: 'bearer',
-        bearerFormat: 'JWT',
-      }
-    }
+        type: "http",
+        scheme: "bearer",
+        bearerFormat: "JWT",
+      },
+    },
   },
-  security: [{
-    bearerAuth: []
-  }]
-    
+  security: [
+    {
+      bearerAuth: [],
+    },
+  ],
 };
 const options = {
   swaggerDefinition,
@@ -51,7 +51,6 @@ app.use(bodyParser.json());
 //app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors());
-app.use("/student", studentRouter);
 app.use("/hotel", hotelRouter);
 app.use("/user", userRouter);
 

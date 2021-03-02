@@ -34,7 +34,11 @@ exports.login = async function (req, res) {
     res.status(200);
     res.json({ token });
   } else {
-    res.status(400).json({ message: "Username or password is incorrect" + req.body.username});
+    res
+      .status(400)
+      .json({
+        message: "Username or password is incorrect" + req.body.username,
+      });
   }
 };
 

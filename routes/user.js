@@ -1,8 +1,8 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var usercontroller = require('../controllers/usercontroller');
-const authorize = require('../_helpers/authorize');
-const roles = require('../_helpers/role');
+var usercontroller = require("../controllers/usercontroller");
+const authorize = require("../_helpers/authorize");
+const roles = require("../_helpers/role");
 
 /* POST add hotel form */
 /**
@@ -27,7 +27,7 @@ const roles = require('../_helpers/role');
  *        200:
  *          description: OK
  */
-router.post('/login', usercontroller.login);
+router.post("/login", usercontroller.login);
 /* POST add hotel form */
 /**
  * @swagger
@@ -51,7 +51,7 @@ router.post('/login', usercontroller.login);
  *        200:
  *          description: OK
  */
-router.post('/adduser', usercontroller.adduser);
+router.post("/adduser", usercontroller.adduser);
 
 /* POST add hotel form */
 /**
@@ -75,7 +75,11 @@ router.post('/adduser', usercontroller.adduser);
  *        200:
  *          description: OK
  */
-router.post('/changerole', authorize(roles.Admin), usercontroller.changeroleManager);
+router.post(
+  "/changerole",
+  authorize(roles.Admin),
+  usercontroller.changeroleManager
+);
 /* POST add hotel form */
 /**
  * @swagger
@@ -98,5 +102,9 @@ router.post('/changerole', authorize(roles.Admin), usercontroller.changeroleMana
  *        200:
  *          description: OK
  */
-router.post('/changeroleUser', authorize(roles.Admin), usercontroller.changeroleBack);
+router.post(
+  "/changeroleUser",
+  authorize(roles.Admin),
+  usercontroller.changeroleBack
+);
 module.exports = router;

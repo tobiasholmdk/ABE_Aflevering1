@@ -101,5 +101,3 @@ router.post("/freerooms", authorize(roles.User), hotelcontroller.getFreeRooms);
 router.get("/gethotels", authorize(roles.Manager), hotelcontroller.getHotels);
 
 module.exports = router;
-
-
