@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 const Schema = mongoose.Schema;
 
 //Obs: role could change to roles array.
@@ -14,7 +17,7 @@ const userSchema = new Schema({
   },
   firstname: String,
   lastname: String,
-  role: String,
+  role: String
 });
 
 const User = mongoose.model("User", userSchema);

@@ -1,6 +1,9 @@
 var user = require("../models/user");
 const jwt = require("jsonwebtoken");
 const roles = require("../_helpers/role");
+const bcrypt = require('bcrypt');
+
+const saltRounds = 10;
 
 exports.changeroleManager = async function (req, res) {
   var result = await user.findOne({ username: req.body.username });
@@ -18,18 +21,18 @@ exports.changeroleBack = async function (req, res) {
   res.json(result);
 };
 
-exports.login = async function (req, res) {
+exports.login = async function (req, res) { 
+
   const result = await user.findOne({
     username: req.body.username,
-    password: req.body.password,
   });
+  var correctLogin = await bcrypt.compare(req.body.password, result.password);
 
-  if (result) {
+  if (correctLogin) {
     const token = jwt.sign(
       { sub: result.id, role: result.role },
       process.env.ACCESS_TOKEN_SECRET
-    );
-    //const {password, ...userWithoutPassword} = result;
+    ); 
 
     res.status(200);
     res.json({ token });
@@ -37,16 +40,20 @@ exports.login = async function (req, res) {
     res
       .status(400)
       .json({
-        message: "Username or password is incorrect" + req.body.username,
+        message: "Username or password is incorrect " + req.body.username,
       });
-  }
+  }  
 };
 
 exports.adduser = async function (req, res) {
+  
+  const salt = await bcrypt.genSalt(saltRounds);  
+  var bcryptPassword = await bcrypt.hash(req.body.password, salt);    
+  
   const newUser = {
     username: req.body.username,
-    password: req.body.password,
-  };
+    password: bcryptPassword
+  };  
 
   try {
     var result = await user.create(newUser);
