@@ -15,21 +15,11 @@ GET http://localhost:3000/hotel/gethotels
 GET http://localhost:3000/
 ###
 
-
-//Returnerer en token ved log in af admin
 GET http://localhost:3000/user/login
 Content-Type: application/json
 
 {
     "username" : "admin",
-    "password" : "admin"
+    "passsword" : "admin"
 }
-###
-GET http://localhost:3000/user/login
-Content-Type: application/json
 
-{
-    "username" : "manager",
-    "password" : "manager"
-}
-###
