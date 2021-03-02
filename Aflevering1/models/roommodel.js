@@ -2,8 +2,8 @@ const mongoose = require('mongoose'); const Schema = mongoose.Schema;
 //Define a schema
 
 const roomSchema = new Schema({ 
-    RoomNumber: String,
-    Beds: String,
+    RoomNumber: Number,
+    Beds: Number,
     Reserved: Boolean
 });
 
